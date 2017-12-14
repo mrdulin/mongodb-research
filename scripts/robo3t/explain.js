@@ -7,7 +7,7 @@
 //     docs.push({i: i, username: 'user' + i, age: Math.floor(Math.random() * 120), created: new Date()})
 // }
 // db.testCursor.insertMany(docs)
-// 
+//
 // db.testCursor.count();
 
 // https://docs.mongodb.com/v3.6/reference/explain-results/#explain.executionStats.totalDocsExamined
@@ -33,4 +33,3 @@
 // db.getCollection('testCursor').find({username: 'user101'}).explain('allPlansExecution')
 // 对于任意的username的查询，几乎都是瞬间完成
 // db.testCursor.find({username: 'user999999'}).explain('allPlansExecution')
-
