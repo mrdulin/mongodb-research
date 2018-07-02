@@ -1,0 +1,31 @@
+{
+  "name": "mongodb-research",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrdulin/mongodb-research.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrdulin/mongodb-research/issues"
+  },
+  "homepage": "https://github.com/mrdulin/mongodb-research#readme",
+  "dependencies": {
+    "mongodb": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/mongodb": "^3.1.0",
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1",
+    "ts-node": "^7.0.0",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2"
+  }
+}
