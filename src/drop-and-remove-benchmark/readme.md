@@ -3,7 +3,7 @@
 实验数据：
 
 ```bash
-☁  mongodb-research [master] ⚡  ./node_modules/.bin/ts-node src/drop-and-remove-benchmark/remove.ts
+☁  mongodb-research [master] ⚡  ./node_modules/.bin/ts-node src/drop-and-remove-benchmark/index.ts
 connected correctly to server
 (node:77404) DeprecationWarning: collection.count is deprecated, and will be removed in a future version. Use collection.countDocuments or collection.estimatedDocumentCount instead
 count:  100000
