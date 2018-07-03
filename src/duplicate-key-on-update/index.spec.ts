@@ -41,7 +41,7 @@ describe('duplicate-key-on-update test suites', () => {
 
     // 报错: After applying the update, the (immutable) field '_id' was found to have been altered to _id
     // 这里用doc整个文档去替换update找到的第一个文档，_id是不可变的不能被更新
-    // const updateResult = await col.update({ name: 'joe' }, doc);
+    const updateResult = await col.update({ name: 'joe' }, doc);
   });
 
   it('t-2', async () => {
