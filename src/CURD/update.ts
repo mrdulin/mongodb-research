@@ -20,6 +20,7 @@ connect().then(async (mongoClient: MongoClient | null) => {
     assert.equal(2, updateManyRes.matchedCount);
     assert.equal(2, updateManyRes.modifiedCount);
 
+    // 使用upsert，可以避免竞态问题，更高效，并且是原子性的
     const upsertRes = await updatesCol.updateOne({ a: 3 }, { $set: { b: 1 } }, { upsert: true });
     assert.equal(0, upsertRes.matchedCount);
     assert.equal(1, upsertRes.upsertedCount);
