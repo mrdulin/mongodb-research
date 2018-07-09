@@ -2,6 +2,7 @@ import { Db, Collection, MongoClient, DeleteWriteOpResultObject, InsertWriteOpRe
 import * as assert from 'assert';
 
 import { connect, dbname } from '../connecting';
+import { benchmark } from '../util';
 
 async function insertData(col: Collection, total: number) {
   try {
@@ -12,17 +13,6 @@ async function insertData(col: Collection, total: number) {
     console.log('count: ', count);
   } catch (err) {
     console.log('insertData: ', err);
-  }
-}
-
-async function benchmark(operation: () => any, message: string) {
-  try {
-    const start = new Date().getTime();
-    await Promise.resolve(operation());
-    const timeDiff = new Date().getTime() - start;
-    console.log(`${message}: ${timeDiff}ms`);
-  } catch (err) {
-    console.log('benchmark: ', err);
   }
 }
 
