@@ -6,6 +6,11 @@ import { EventEmitter } from 'events';
 
 const eventEmitter = new EventEmitter();
 
+interface IMainResult {
+  col: Collection<any>;
+  mongoClient: MongoClient;
+}
+
 function initData(col: Collection): Promise<InsertWriteOpResult> {
   const docs = [];
   for (let i = 0; i < 1000; i++) {
@@ -26,7 +31,7 @@ function next(col: Collection<any>, page: number = 1, pageSize: number = 100): P
 
 function main() {
   return connect().then(
-    (mongoClient: MongoClient | null): Promise<Collection> => {
+    (mongoClient: MongoClient | null): Promise<IMainResult> => {
       if (!mongoClient) {
         return Promise.reject('mongoClient is null');
       }
@@ -36,14 +41,14 @@ function main() {
         .drop()
         .then(() => {
           const col: Collection = db.collection('testCursor');
-          return initData(col).then((): Collection<any> => col);
+          return initData(col).then((): IMainResult => ({ col, mongoClient }));
         });
     }
   );
 }
 
 main()
-  .then((col: Collection) => {
+  .then(({ col, mongoClient }: IMainResult) => {
     let page: number = 0;
     const delay: number = 2000;
     let docs: any[] = [];
@@ -57,7 +62,7 @@ main()
         eventEmitter.removeAllListeners(nextPageEvent);
         clearInterval(intervalId);
         console.log('docs total count: ', docs.length);
-        process.exit(1);
+        mongoClient.close();
       }
     }, delay);
 

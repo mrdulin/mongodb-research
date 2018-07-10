@@ -6,7 +6,9 @@
     "quotemark": false,
     "no-console": false,
     "trailing-comma": false,
-    "ordered-imports": false
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "arrow-parens": false
   },
   "rulesDirectory": []
 }
