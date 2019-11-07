@@ -9,7 +9,7 @@ connect().then(async (mongoClient: MongoClient | null) => {
 
     const updatesCol: Collection = db.collection('updates');
 
-    const insertManyRes: InsertWriteOpResult = await updatesCol.insertMany([{ a: 1 }, { a: 2 }, { a: 2 }]);
+    const insertManyRes: InsertWriteOpResult<any> = await updatesCol.insertMany([{ a: 1 }, { a: 2 }, { a: 2 }]);
     console.log('insertManyRes.insertedCount: ', insertManyRes.insertedCount);
 
     const updateOneRes = await updatesCol.updateOne({ a: 1 }, { $set: { b: 1 } });

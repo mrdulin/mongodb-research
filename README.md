@@ -1,9 +1,6 @@
-# mongodb-research
+# nodejs-mongodb
 
-## 参考
+## references
 
-- 数据库设计
-
-https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1
-
-https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-2
+- [6-rules-of-thumb-for-mongodb-schema-design-part-1](https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1)
+- [6-rules-of-thumb-for-mongodb-schema-design-part-2](https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-2)

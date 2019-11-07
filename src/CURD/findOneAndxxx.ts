@@ -19,8 +19,8 @@ connect().then(async (mongoClient: MongoClient | null) => {
         {
           returnOriginal: false,
           sort: [['a', 1]],
-          upsert: true
-        }
+          upsert: true,
+        },
       );
       console.log('findOneAndUpdateResult.value: ', findOneAndUpdateResult.value);
       assert.equal(1, findOneAndUpdateResult.value.b);

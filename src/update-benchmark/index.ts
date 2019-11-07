@@ -1,4 +1,4 @@
-import { Db, Collection, MongoClient, DeleteWriteOpResultObject, InsertWriteOpResult } from 'mongodb';
+import { Db, Collection, MongoClient } from 'mongodb';
 
 import { connect, dbname } from '../connecting';
 import { benchmark } from '../util';

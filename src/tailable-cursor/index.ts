@@ -1,14 +1,4 @@
-import {
-  MongoClient,
-  Db,
-  Collection,
-  InsertWriteOpResult,
-  InsertOneWriteOpResult,
-  DeleteWriteOpResultObject,
-  Cursor
-} from 'mongodb';
-import * as assert from 'assert';
-
+import { MongoClient, Db, Collection, InsertOneWriteOpResult, Cursor } from 'mongodb';
 import { connect, dbname } from '../connecting';
 
 interface IMainResult {
@@ -17,7 +7,7 @@ interface IMainResult {
 }
 
 function sleep(ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function main() {
@@ -32,15 +22,15 @@ function main() {
         .createCollection('cappedCollection', {
           capped: true,
           size: 10 * 1000,
-          max: 100
+          max: 100,
         })
         .then(
           (col: Collection): IMainResult => {
             console.log('create collection successfully');
             return { col, mongoClient };
-          }
+          },
         );
-    }
+    },
   );
 }
 
@@ -53,14 +43,14 @@ function insertSchedule(col: Collection, ms: number = 2000, count: number = 10) 
       insertCompleted = false;
       col
         .insertOne({ random: Math.random() })
-        .then((res: InsertOneWriteOpResult) => {
+        .then((res: InsertOneWriteOpResult<any>) => {
           insertCompleted = true;
           if (res.result.ok) {
             console.log('insert document successfully');
             insertedCount += 1;
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.log('insert document error: ', err);
           insertCompleted = true;
         });

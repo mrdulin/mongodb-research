@@ -1,6 +1,4 @@
-import { MongoClient, Db, Collection, InsertWriteOpResult, DeleteWriteOpResultObject, Cursor } from 'mongodb';
-import * as assert from 'assert';
-
+import { MongoClient, Db, Collection, InsertWriteOpResult } from 'mongodb';
 import { connect, dbname } from '../connecting';
 import { EventEmitter } from 'events';
 
@@ -11,7 +9,7 @@ interface IMainResult {
   mongoClient: MongoClient;
 }
 
-function initData(col: Collection): Promise<InsertWriteOpResult> {
+function initData(col: Collection): Promise<InsertWriteOpResult<any>> {
   const docs = [];
   for (let i = 0; i < 1000; i++) {
     docs.push({ x: i });
@@ -43,7 +41,7 @@ function main() {
           const col: Collection = db.collection('testCursor');
           return initData(col).then((): IMainResult => ({ col, mongoClient }));
         });
-    }
+    },
   );
 }
 

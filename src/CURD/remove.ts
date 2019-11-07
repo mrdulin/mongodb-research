@@ -10,7 +10,7 @@ connect().then(async (mongoClient: MongoClient | null) => {
     const col: Collection = db.collection('removes');
 
     try {
-      const insertManyRes: InsertWriteOpResult = await col.insertMany([{ a: 1 }, { a: 2 }, { a: 2 }]);
+      const insertManyRes: InsertWriteOpResult<any> = await col.insertMany([{ a: 1 }, { a: 2 }, { a: 2 }]);
       assert.equal(3, insertManyRes.insertedCount);
 
       const deleteOneRes: DeleteWriteOpResultObject = await col.deleteOne({ a: 1 });
